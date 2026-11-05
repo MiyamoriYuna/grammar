@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10243f">
+<title>Grammar Studio | 英文法学習</title>
+<style>
+:root{--navy:#10243f;--blue:#2563eb;--cyan:#06b6d4;--ink:#172b4d;--muted:#718096;--line:#e2eaf3;--bg:#f3f7fc;--white:#fff;--pale:#eaf3ff;--shadow:0 12px 32px rgba(16,36,63,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;padding-bottom:90px}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.topbar{background:var(--navy);color:white;padding:20px max(20px,calc((100% - 1080px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),#3978ff);display:grid;place-items:center;font-weight:900;font-size:20px}.brand h1{font-size:18px;margin:0;letter-spacing:.4px}.brand small{display:block;color:#b8c9e0;font-size:11px;margin-top:2px}.top-tag{font-size:11px;border:1px solid #48617e;border-radius:30px;padding:7px 11px;color:#d9e8fa}.wrap{max-width:1080px;margin:0 auto;padding:28px 20px}.hero{background:linear-gradient(120deg,#12365e,#1d4ed8 70%,#0891b2);color:white;border-radius:22px;padding:28px 30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:"Aa";position:absolute;right:34px;top:-28px;font-size:150px;font-weight:900;color:#ffffff12;transform:rotate(10deg)}.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#bdeeff}.hero h2{font-size:clamp(24px,4vw,34px);margin:9px 0}.hero p{margin:0;color:#e1edff;max-width:560px;line-height:1.8;font-size:14px}.hero-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}.btn{border-radius:11px;padding:11px 16px;font-weight:750;font-size:13px;transition:.2s}.btn-primary{background:var(--blue);color:white}.btn-white{background:white;color:#16417a}.btn-outline{background:white;border:1px solid var(--line);color:var(--ink)}.btn-dark{background:var(--navy);color:white}.btn:hover{transform:translateY(-1px);filter:brightness(.97)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 0 14px}.section-head h2{font-size:18px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:5px 0 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.stat,.panel,.topic-card,.flash-card,.question-card,.explain-card{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 16px rgba(16,36,63,.035)}.stat{padding:15px}.stat b{font-size:23px;color:var(--blue)}.stat span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.topic-card{padding:18px;text-align:left;color:var(--ink);width:100%;transition:.2s}.topic-card:hover{border-color:#9fc4ff;transform:translateY(-2px)}.topic-icon{width:38px;height:38px;border-radius:12px;background:var(--pale);display:grid;place-items:center;color:var(--blue);font-weight:900;font-size:17px}.topic-card h3{font-size:15px;margin:12px 0 5px}.topic-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.page{display:none}.page.active{display:block}.page-title{margin:0 0 5px;font-size:25px}.page-lead{margin:0 0 22px;color:var(--muted);font-size:13px;line-height:1.7}.panel{padding:22px;margin-bottom:16px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field select,.field input,.field textarea{width:100%;border:1px solid #d7e2ef;border-radius:10px;padding:11px 12px;background:#fbfdff;color:var(--ink);outline:none}.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb18}.field.full{grid-column:1/-1}.checks{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}.checks label{display:flex;gap:7px;align-items:center}.action-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.muted{color:var(--muted);font-size:12px}.result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 12px}.result-head h3{margin:0;font-size:17px}.question-card{padding:18px;margin-bottom:12px;break-inside:avoid}.q-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.q-number{font-size:11px;font-weight:850;color:var(--blue);letter-spacing:.8px}.q-type{font-size:10px;padding:5px 9px;background:#edf5ff;color:#2458a6;border-radius:30px}.q-text{font-size:16px;line-height:1.8;margin:13px 0}.answer-line{border-bottom:1px solid #91a5bb;display:inline-block;min-width:105px;height:22px;vertical-align:bottom}.q-answer{display:none;background:#f0f8ff;border-left:3px solid var(--cyan);padding:10px 12px;border-radius:7px;font-size:13px;line-height:1.7;margin-top:12px}.q-answer.show{display:block}.q-note{font-size:12px;color:var(--muted);margin-top:8px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.flash-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px}.flash-card{padding:30px;text-align:center;min-height:270px;display:flex;flex-direction:column;justify-content:center;cursor:pointer}.flash-card .fc-label{font-size:11px;color:var(--blue);font-weight:850;letter-spacing:1px}.flash-card h3{font-size:24px;margin:18px 0;line-height:1.5}.flash-card p{font-size:14px;color:var(--muted);line-height:1.9;white-space:pre-line}.flash-controls{display:flex;justify-content:center;gap:10px;margin-top:15px}.side-list{padding:15px}.side-list h3{margin:0 0 12px;font-size:14px}.flash-item{padding:10px;border-bottom:1px solid var(--line);font-size:12px;cursor:pointer}.flash-item:last-child{border:0}.flash-item:hover{color:var(--blue)}.explain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.explain-card{padding:18px}.explain-card h3{font-size:16px;margin:0 0 10px}.explain-card p,.explain-card li{font-size:13px;line-height:1.8}.rule{background:#f1f7ff;padding:11px 13px;border-radius:9px;font-weight:800;color:#164a91;margin:10px 0;font-size:13px}.example{border-left:3px solid var(--cyan);padding:7px 12px;margin:10px 0;font-size:13px;line-height:1.7}.search{max-width:300px}.bottom-nav{position:fixed;z-index:20;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -6px 24px #10243f0b}.nav-inner{width:min(600px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nav-btn{background:transparent;color:#8291a5;padding:7px 4px;border-radius:12px;font-size:11px;font-weight:750;display:flex;flex-direction:column;align-items:center;gap:4px}.nav-btn .ico{font-size:20px;line-height:1.1}.nav-btn.active{color:var(--blue);background:#edf4ff}.toast{position:fixed;bottom:95px;left:50%;transform:translateX(-50%);background:var(--navy);color:white;padding:10px 16px;border-radius:30px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}.print-only{display:none}
+@media(max-width:700px){.wrap{padding:20px 14px}.topbar{padding:15px}.top-tag{display:none}.hero{padding:23px 20px}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:19px}.quick-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.flash-layout{grid-template-columns:1fr}.explain-grid{grid-template-columns:1fr}.search{max-width:100%;width:100%}.section-head{align-items:start;flex-direction:column}.toolbar{width:100%}}
+@media print{body{background:white;padding:0;color:#111}.topbar,.bottom-nav,.hero,.no-print,.page-title,.page-lead,.toast{display:none!important}.wrap{max-width:none;padding:0}.page{display:none!important}.page.printing{display:block!important}.question-card,.explain-card,.panel{box-shadow:none;border:1px solid #bbb;break-inside:avoid}.q-answer{display:block!important;background:white;border-color:#555}.print-only{display:block}.result-head{margin-top:0}.question-card{margin-bottom:10px}.q-text{font-size:14px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <div class="brand"><div class="logo">G</div><div><h1>GRAMMAR STUDIO</h1><small>高校英文法を、つくる・覚える・理解する。</small></div></div>
+ <div class="top-tag">HIGH SCHOOL ENGLISH</div>
+</header>
+<main class="wrap">
+<section id="home" class="page active">
+ <div class="hero">
+  <div class="eyebrow">LEARN ENGLISH GRAMMAR</div>
+  <h2>英文法を、もっと自分のものに。</h2>
+  <p>問題を作って解く。要点を読んで理解する。カードでくり返し覚える。自分のペースで英文法を身につけよう。</p>
+  <div class="hero-actions"><button class="btn btn-white" onclick="showPage('create')">問題を作成する →</button><button class="btn" style="background:#ffffff20;color:white;border:1px solid #ffffff55" onclick="showPage('cards')">単語帳を開く</button></div>
+ </div>
+ <div class="stats">
+  <div class="stat"><b id="statCards">0</b><span>登録した暗記カード</span></div>
+  <div class="stat"><b id="statTopics">15</b><span>学習できる文法分野</span></div>
+  <div class="stat"><b>2</b><span>問題形式（穴埋め・和訳）</span></div>
+ </div>
+ <div class="section-head"><div><h2>学習メニュー</h2><p>目的に合わせて学習を始めよう。</p></div></div>
+ <div class="quick-grid">
+  <button class="topic-card" onclick="showPage('cards')"><div class="topic-icon">▤</div><h3>単語帳で覚える</h3><p>文法ルールや例文をカードで確認。自分だけのカードも追加できます。</p></button>
+  <button class="topic-card" onclick="showPage('create')"><div class="topic-icon">✎</div><h3>問題を作成する</h3><p>文法分野・形式・問題数を選んで、オリジナル問題を作成。</p></button>
+  <button class="topic-card" onclick="showPage('explain')"><div class="topic-icon">▣</div><h3>文法を理解する</h3><p>要点・基本の形・例文を整理した解説プリントを確認。</p></button>
+ </div>
+ <div class="section-head"><div><h2>収録している文法分野</h2><p>高校英文法の主要単元を収録。</p></div></div>
+ <div id="homeTopics" class="quick-grid"></div>
+</section>
+
+<section id="create" class="page">
+ <h2 class="page-title">問題作成</h2><p class="page-lead">出題したい文法と形式を選ぶと、問題・解答・解説をまとめて作成できます。</p>
+ <div class="panel">
+  <div class="form-grid">
+   <div class="field full"><label>出題する文法分野（複数選択できます）</label>
+    <div class="checks" id="topicChecks"></div>
+    <div class="action-row" style="margin-top:10px">
+     <button type="button" class="btn btn-outline" onclick="setTopicChecks(true)">すべて選択</button>
+     <button type="button" class="btn btn-outline" onclick="setTopicChecks(false)">選択をクリア</button>
+    </div>
+   </div>
+   <div class="field"><label for="qType">問題形式</label><select id="qType"><option value="mix">穴埋め＋日本語訳</option><option value="blank">穴埋め問題</option><option value="translate">日本語訳問題</option></select></div>
+   <div class="field"><label for="qCount">問題数</label><select id="qCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+   <div class="field"><label for="qLevel">難易度</label><select id="qLevel"><option value="all">標準（すべて）</option><option value="basic">基礎</option><option value="advanced">応用</option></select></div>
+  </div>
+  <div class="action-row"><button class="btn btn-primary" onclick="generateQuestions()">問題を作成する ✦</button><button class="btn btn-outline" onclick="resetQuestions()">リセット</button></div>
+  <p class="muted">※問題は内蔵のオリジナル問題データから作成します。内容を確認してから印刷してください。</p>
+ </div>
+ <div id="questionResult"></div>
+</section>
+
+<section id="cards" class="page">
+ <h2 class="page-title">重要表現カード</h2><p class="page-lead">judging from ～ のような重要表現・熟語を、意味と例文で確認できます。文法分野を選んで学習しよう。</p>
+ <div class="panel">
+  <div class="form-grid">
+   <div class="field"><label for="cardFilter">文法分野を選択</label><select id="cardFilter" onchange="flashIndex=0;flipped=false;renderFlashcard()"><option value="all">すべての分野</option></select></div>
+   <div class="field"><label>カードの操作</label><div class="action-row" style="margin:0"><button class="btn btn-outline" onclick="openAddCard()">＋ 自分のカードを追加</button></div></div>
+  </div>
+ </div>
+ <div class="flash-layout">
+  <div><div class="flash-card" id="flashCard" onclick="flipCard()"><div class="fc-label" id="fcLabel">EXPRESSION CARD</div><h3 id="fcFront">読み込み中…</h3><p id="fcBack" style="display:none;white-space:pre-line"></p><small class="muted" id="fcHint">タップして意味・例文を見る</small></div>
+   <div class="flash-controls"><button class="btn btn-outline" onclick="prevCard()">← 前へ</button><button class="btn btn-primary" onclick="flipCard()">カードをめくる</button><button class="btn btn-outline" onclick="nextCard()">次へ →</button></div>
+   <p class="muted" id="fcCount" style="text-align:center"></p>
+  </div>
+  <div class="panel side-list"><h3>カード一覧</h3><div id="cardList"></div></div>
+ </div>
+ <div id="addCardPanel" class="panel" style="display:none;margin-top:16px">
+  <h3 style="margin-top:0">オリジナルカードを追加</h3>
+  <div class="form-grid"><div class="field"><label>文法分野</label><select id="newCardTopic"></select></div><div class="field"><label>表面（重要表現）</label><input id="newCardFront" placeholder="例：judging from ～"></div><div class="field full"><label>裏面（意味・使い方・例文）</label><textarea id="newCardBack" rows="3" placeholder="意味・使い方・例文を入力"></textarea></div></div>
+  <div class="action-row"><button class="btn btn-primary" onclick="saveCard()">カードを保存</button><button class="btn btn-outline" onclick="document.getElementById('addCardPanel').style.display='none'">閉じる</button></div>
+ </div>
+</section>
+
+<section id="explain" class="page">
+ <h2 class="page-title">文法解説</h2><p class="page-lead">文法のポイントを確認して、必要な単元だけをプリントにできます。</p>
+ <div class="panel no-print">
+  <div class="form-grid"><div class="field"><label for="eTopic">解説する文法分野</label><select id="eTopic" onchange="renderExplanation()"></select></div><div class="field"><label>プリント</label><button class="btn btn-primary" style="width:100%" onclick="printExplanation()">この解説を印刷する ⎙</button></div></div>
+ </div>
+ <div id="explainResult" class="explain-grid"></div>
+</section>
+</main>
+<nav class="bottom-nav no-print"><div class="nav-inner">
+ <button class="nav-btn" data-page="cards" onclick="showPage('cards')"><span class="ico">▤</span>単語帳</button>
+ <button class="nav-btn active" data-page="create" onclick="showPage('create')"><span class="ico">✎</span>問題作成</button>
+ <button class="nav-btn" data-page="explain" onclick="showPage('explain')"><span class="ico">▣</span>解説</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+<script>
+const topics = [
+ {id:"文型",desc:"5つの基本文型と文の要素",icon:"01"},
+ {id:"時制",desc:"現在・過去・未来・完了形",icon:"02"},
+ {id:"助動詞",desc:"can・must・should・would など",icon:"03"},
+ {id:"受動態",desc:"be動詞＋過去分詞",icon:"04"},
+ {id:"不定詞",desc:"名詞的・形容詞的・副詞的用法",icon:"05"},
+ {id:"動名詞",desc:"動詞＋ing の名詞的な働き",icon:"06"},
+ {id:"分詞・分詞構文",desc:"現在分詞・過去分詞・分詞構文",icon:"07"},
+ {id:"関係詞",desc:"関係代名詞・関係副詞・複合関係詞",icon:"08"},
+ {id:"仮定法",desc:"仮定法過去・過去完了など",icon:"09"},
+ {id:"比較",desc:"比較級・最上級・原級",icon:"10"},
+ {id:"前置詞",desc:"場所・時・方向などを表す語",icon:"11"},
+ {id:"文の種類",desc:"疑問文・否定文・命令文・感嘆文",icon:"12"},
+ {id:"話法",desc:"直接話法と間接話法",icon:"13"},
+ {id:"強調・倒置",desc:"強調構文・語順の変化",icon:"14"},
+ {id:"その他の構文",desc:"無生物主語・重要構文",icon:"15"}
+];
+const lessons = {
+"文型":{intro:"英文の骨組みは、主語（S）・動詞（V）・目的語（O）・補語（C）の組み合わせで整理できます。",rule:"第1文型 SV ／ 第2文型 SVC ／ 第3文型 SVO ／ 第4文型 SVOO ／ 第5文型 SVOC",points:["目的語Oは動作の対象を表す。","補語Cは主語や目的語の状態・性質を説明する。","動詞がどの文型を作るかに注目する。"],examples:[["She became a doctor.","彼女は医者になった。（SVC）"],["My father gave me a watch.","父は私に時計をくれた。（SVOO）"]]},
+"時制":{intro:"時制は、出来事がいつ起きるかだけでなく、現在とのつながりや動作の進行・完了も表します。",rule:"現在完了：have / has + 過去分詞 ／ 過去完了：had + 過去分詞 ／ 未来完了：will have + 過去分詞",points:["現在完了は過去の出来事と現在との関係を表す。","過去完了は過去のある時点より前を表す。","時・条件を表す副詞節では、未来のことも現在形で表す。"],examples:[["I have lived here for five years.","私はここに5年間住んでいます。"],["The train had already left when I arrived.","私が着いたとき、列車はすでに出発していた。"]]},
+"助動詞":{intro:"助動詞は動詞に意味を加え、能力・可能性・義務・推量・助言などを表します。",rule:"助動詞 + 動詞の原形 ／ 助動詞 + have + 過去分詞（過去についての推量など）",points:["助動詞の直後は動詞の原形。","must は強い義務や確信、may は許可や可能性を表す。","should have + 過去分詞は「～すべきだったのに」の意味になることがある。"],examples:[["You should see a doctor.","あなたは医者に診てもらうべきです。"],["She may have missed the train.","彼女は列車に乗り遅れたのかもしれない。"]]},
+"受動態":{intro:"受動態は、動作をする人よりも、動作を受ける人・物を主語にして表す形です。",rule:"主語 + be動詞 + 過去分詞（+ by ～）",points:["時制はbe動詞で表す。","助動詞がある場合は助動詞 + be + 過去分詞。","動作主が明らかな場合や重要でない場合、by ～を省略する。"],examples:[["This book was written by her.","この本は彼女によって書かれた。"],["The room must be cleaned.","その部屋は掃除されなければならない。"]]},
+"不定詞":{intro:"to不定詞は「to + 動詞の原形」の形で、名詞・形容詞・副詞のように働きます。",rule:"名詞的用法：～すること ／ 形容詞的用法：～するための・～すべき ／ 副詞的用法：～するために・～して",points:["文中での働きから3用法を判断する。","疑問詞 + to不定詞は「何を～すべきか」などを表す。","too ... to ～ は「あまりに…なので～できない」。"],examples:[["To learn a language takes time.","言語を学ぶことには時間がかかる。"],["I have a lot of work to do.","私にはすべき仕事がたくさんある。"]]},
+"動名詞":{intro:"動名詞は動詞に -ing を付け、名詞の働きをさせる形です。",rule:"動名詞：動詞 + ing ／ 前置詞 + 動名詞",points:["主語・目的語・補語になる。","前置詞の後ろには原則として動名詞を置く。","remember doing は「したことを覚えている」、remember to do は「忘れずに～する」。"],examples:[["Reading books is fun.","本を読むことは楽しい。"],["She is good at cooking.","彼女は料理が得意だ。"]]},
+"分詞・分詞構文":{intro:"現在分詞（-ing）と過去分詞は、名詞を説明したり、補語になったりします。分詞構文は接続詞を使う文を簡潔に表します。",rule:"現在分詞：～している ／ 過去分詞：～された・～してしまった ／ 分詞構文：分詞 + ...",points:["名詞が動作をする側なら現在分詞、受ける側なら過去分詞が基本。","分詞構文の意味は文脈から判断する。","主節と分詞構文の主語が異なる場合は独立分詞構文になることがある。"],examples:[["The girl standing there is my sister.","そこに立っている少女は私の妹です。"],["Walking along the street, I met Ken.","通りを歩いていると、私はケンに会った。"]]},
+"関係詞":{intro:"関係詞は、名詞の後ろに説明を加えたり、文と文をつないだりする働きをします。",rule:"関係代名詞：who / which / that / whose / what ／ 関係副詞：when / where / why / how",points:["関係代名詞の後ろは主語や目的語などが欠けた文になる。","関係副詞の後ろは基本的に文の要素がそろった文になる。","what は「～すること・もの」を表し、先行詞を含む。"],examples:[["The man who lives next door is kind.","隣に住んでいる男性は親切だ。"],["This is what I wanted.","これが私の欲しかったものです。"]]},
+"仮定法":{intro:"仮定法は、事実と異なることや、実現の可能性が低いことを仮定して表します。",rule:"仮定法過去：If + 主語 + 過去形, 主語 + would + 動詞の原形 ／ 仮定法過去完了：If + had + 過去分詞, 主語 + would have + 過去分詞",points:["仮定法過去は現在の事実と異なる仮定。","仮定法過去完了は過去の事実と異なる仮定。","Ifを省略すると、wereやhadが主語の前に出ることがある。"],examples:[["If I were you, I would accept the offer.","もし私があなたなら、その申し出を受けるでしょう。"],["If I had known it, I would have helped you.","もしそれを知っていたら、あなたを手伝ったのに。"]]},
+"比較":{intro:"比較表現は、2つ以上の人や物の性質・程度を比べるときに使います。",rule:"原級：as + 原級 + as ／ 比較級：-er / more + than ／ 最上級：the -est / most",points:["比較級の後ろにはthanを使うことが多い。","最上級は範囲を表すinやofとともに使う。","as ... as は「～と同じくらい…」。"],examples:[["This book is more interesting than that one.","この本はあの本よりおもしろい。"],["She is the tallest of the three.","彼女は3人の中で最も背が高い。"]]},
+"前置詞":{intro:"前置詞は名詞の前に置かれ、場所・時・方向・関係などを表します。",rule:"前置詞 + 名詞（代名詞・動名詞など）",points:["atは点、onは面、inは空間・範囲のイメージ。","時を表す場合、atは時刻、onは日付・曜日、inは月・年など。","前置詞の後ろに動詞を置く場合は動名詞にする。"],examples:[["The meeting starts at nine.","会議は9時に始まる。"],["She is interested in learning French.","彼女はフランス語を学ぶことに興味がある。"]]},
+"文の種類":{intro:"英文には、平叙文・疑問文・命令文・感嘆文などがあります。否定や付加疑問の形も確認しましょう。",rule:"疑問文：助動詞 / be動詞 + 主語 ...? ／ 感嘆文：What + 名詞 ...! / How + 形容詞・副詞 ...!",points:["一般動詞の疑問文ではdo / does / didを使う。","付加疑問文は、肯定文の後ろに否定形、否定文の後ろに肯定形を付けるのが基本。","部分否定と完全否定の違いに注意する。"],examples:[["How beautiful this flower is!","この花はなんて美しいのでしょう。"],["You know him, don't you?","あなたは彼を知っていますよね。"]]},
+"話法":{intro:"直接話法は発言をそのまま引用し、間接話法は発言内容を文の一部として伝えます。",rule:"直接話法：He said, “I am busy.” ／ 間接話法：He said that he was busy.",points:["主節が過去の場合、時制を一つ過去にずらすことがある。","人称代名詞や時・場所を表す語も文脈に合わせて変える。","疑問文を間接話法にするときは、通常の語順にする。"],examples:[["She said, “I like music.”","彼女は「私は音楽が好きです」と言った。"],["She said that she liked music.","彼女は音楽が好きだと言った。"]]},
+"強調・倒置":{intro:"語句を強く伝えたいときは強調構文を使い、特定の語句を前に出すと倒置が起こることがあります。",rule:"強調構文：It is / was ～ that ... ／ 倒置：否定語など + 助動詞 + 主語 + 動詞",points:["It is ～ that ... で人・物・時・場所などを強調できる。","否定語が文頭に出ると倒置が起こることがある。","強調したい部分がどこかを見つける。"],examples:[["It was yesterday that I met her.","私が彼女に会ったのは昨日だった。"],["Never have I seen such a view.","私はそのような景色を一度も見たことがない。"]]},
+"その他の構文":{intro:"高校英文法では、無生物主語やさまざまな慣用構文も学びます。形だけでなく自然な日本語訳を意識しましょう。",rule:"無生物主語：物・事柄 + 動詞 + 人 ／ so ... that ～：とても…なので～",points:["無生物主語は「～のおかげで」「～のために」など自然な日本語にする。","構文ごとの語順と意味をセットで覚える。","例文の中で使い方を確認する。"],examples:[["The news made me happy.","その知らせを聞いて私はうれしくなった。"],["He was so tired that he fell asleep.","彼はとても疲れていたので眠ってしまった。"]]}
+};
+const questions = [
+{t:"文型",kind:"blank",level:"basic",q:"She (　　　) a teacher last year.",a:"became",ja:"彼女は昨年、教師になった。",why:"becomeは「～になる」という第2文型（SVC）を作る動詞。過去の文なのでbecame。"},
+{t:"文型",kind:"translate",level:"basic",q:"My mother gave me a new bag.",a:"母は私に新しいかばんをくれた。",why:"give + 人 + 物 の第4文型（SVOO）。"},
+{t:"時制",kind:"blank",level:"basic",q:"I (　　　) lived here for ten years.",a:"have",ja:"私はここに10年間住んでいます。",why:"過去から現在まで続く状態なので現在完了 have + 過去分詞。"},
+{t:"時制",kind:"blank",level:"advanced",q:"By the time we arrived, the movie (　　　) already started.",a:"had",ja:"私たちが着いたときには、映画はすでに始まっていた。",why:"過去の到着より前に始まっていたので過去完了。"},
+{t:"時制",kind:"translate",level:"basic",q:"She has been studying English since this morning.",a:"彼女は今朝からずっと英語を勉強しています。",why:"現在完了進行形は過去から現在まで続く動作を表す。"},
+{t:"助動詞",kind:"blank",level:"basic",q:"You (　　　) respect other people's opinions.",a:"should",ja:"あなたは他人の意見を尊重すべきだ。",why:"shouldは助言・義務「～すべきだ」。"},
+{t:"助動詞",kind:"blank",level:"advanced",q:"He (　　　) have forgotten the meeting.",a:"may",ja:"彼は会議を忘れたのかもしれない。",why:"may have + 過去分詞で過去の可能性を表す。"},
+{t:"助動詞",kind:"translate",level:"basic",q:"You must not use your phone here.",a:"ここでは携帯電話を使ってはいけません。",why:"must notは「～してはいけない」という禁止。"},
+{t:"受動態",kind:"blank",level:"basic",q:"This song (　　　) written by a famous musician.",a:"was",ja:"この歌は有名な音楽家によって書かれた。",why:"過去の受動態はwas / were + 過去分詞。"},
+{t:"受動態",kind:"translate",level:"advanced",q:"The problem should be discussed by all the members.",a:"その問題は全員によって話し合われるべきだ。",why:"should be + 過去分詞で助動詞を含む受動態。"},
+{t:"不定詞",kind:"blank",level:"basic",q:"I want (　　　) visit Kyoto someday.",a:"to",ja:"私はいつか京都を訪れたい。",why:"wantの目的語にはto不定詞を使う。"},
+{t:"不定詞",kind:"blank",level:"advanced",q:"He was kind enough (　　　) help me.",a:"to",ja:"彼は親切にも私を助けてくれた。",why:"形容詞 + enough to doで「～するほど十分…」。"},
+{t:"不定詞",kind:"translate",level:"basic",q:"I don't know what to say.",a:"私は何と言えばよいかわからない。",why:"疑問詞 + to不定詞は「何を～すべきか」。"},
+{t:"動名詞",kind:"blank",level:"basic",q:"She enjoys (　　　) books.",a:"reading",ja:"彼女は読書を楽しんでいる。",why:"enjoyの目的語には動名詞を使う。"},
+{t:"動名詞",kind:"translate",level:"advanced",q:"He is looking forward to seeing you.",a:"彼はあなたに会うのを楽しみにしています。",why:"look forward toのtoは前置詞なので後ろは動名詞。"},
+{t:"分詞・分詞構文",kind:"blank",level:"basic",q:"The boy (　　　) by the window is my brother.",a:"standing",ja:"窓のそばに立っている少年は私の弟です。",why:"少年が立っている側なので現在分詞standing。"},
+{t:"分詞・分詞構文",kind:"translate",level:"advanced",q:"Seen from the hill, the town looks beautiful.",a:"丘から見ると、その町は美しく見える。",why:"過去分詞から始まる分詞構文。主語the townは「見られる」側。"},
+{t:"関係詞",kind:"blank",level:"basic",q:"This is the book (　　　) I bought yesterday.",a:"which / that",ja:"これは私が昨日買った本です。",why:"先行詞the bookを説明する目的格の関係代名詞。省略も可能。"},
+{t:"関係詞",kind:"blank",level:"advanced",q:"I will never forget the day (　　　) we first met.",a:"when",ja:"私たちが初めて会った日を決して忘れない。",why:"the dayの後ろに時を表す関係副詞when。"},
+{t:"関係詞",kind:"translate",level:"basic",q:"What he said was true.",a:"彼が言ったことは本当だった。",why:"whatは先行詞を含む関係代名詞で「～すること・もの」。"},
+{t:"仮定法",kind:"blank",level:"basic",q:"If I (　　　) rich, I would travel around the world.",a:"were",ja:"もし私がお金持ちなら、世界中を旅行するのに。",why:"現在の事実に反する仮定なので仮定法過去。be動詞はwereが基本。"},
+{t:"仮定法",kind:"blank",level:"advanced",q:"If she had studied harder, she (　　　) have passed the exam.",a:"would",ja:"もし彼女がもっと一生懸命勉強していたら、試験に合格していただろう。",why:"過去の事実に反する仮定。主節はwould have + 過去分詞。"},
+{t:"仮定法",kind:"translate",level:"advanced",q:"I wish I could speak French.",a:"フランス語を話せたらいいのに。",why:"I wish + 仮定法過去で現在の実現しにくい願望を表す。"},
+{t:"比較",kind:"blank",level:"basic",q:"This box is (　　　) than that one.",a:"heavier",ja:"この箱はあの箱より重い。",why:"heavyの比較級はyをiに変えて-erを付ける。"},
+{t:"比較",kind:"translate",level:"advanced",q:"The more you practice, the better you become.",a:"練習すればするほど、上達する。",why:"the + 比較級 ..., the + 比較級 ... は「～すればするほど…」。"},
+{t:"前置詞",kind:"blank",level:"basic",q:"She was born (　　　) April.",a:"in",ja:"彼女は4月に生まれた。",why:"月・年など比較的長い期間にはinを使う。"},
+{t:"前置詞",kind:"blank",level:"advanced",q:"He succeeded (　　　) solving the problem.",a:"in",ja:"彼はその問題を解くことに成功した。",why:"succeed in ～ingで「～することに成功する」。"},
+{t:"文の種類",kind:"translate",level:"basic",q:"How beautiful the stars are!",a:"星はなんて美しいのでしょう。",why:"How + 形容詞 / 副詞 + 主語 + 動詞の感嘆文。"},
+{t:"話法",kind:"blank",level:"advanced",q:"He said that he (　　　) busy.",a:"was",ja:"彼は忙しいと言った。",why:"主節が過去のsaidなので、時制の一致でamがwasになる。"},
+{t:"強調・倒置",kind:"blank",level:"advanced",q:"It was Tom (　　　) broke the window.",a:"who / that",ja:"窓を割ったのはトムだった。",why:"It is / was ～ that ... の強調構文。人を強調する場合whoも使える。"},
+{t:"その他の構文",kind:"translate",level:"basic",q:"The news made me happy.",a:"その知らせを聞いて私はうれしくなった。",why:"無生物主語を自然な日本語に訳す。"}
+];
+
+const expressionCards = [
+ {topic:"文型",front:"make O C",back:"OをCの状態にする\n例：The news made me happy.\n訳：その知らせで私はうれしくなった。"},
+ {topic:"文型",front:"find O C",back:"OがCだとわかる\n例：I found the book interesting.\n訳：私はその本がおもしろいとわかった。"},
+ {topic:"時制",front:"have been ～ing",back:"ずっと～し続けている（現在完了進行形）\n例：She has been studying for two hours.\n訳：彼女は2時間ずっと勉強している。"},
+ {topic:"時制",front:"by the time ～",back:"～する時までには\n例：By the time we arrived, the movie had started.\n訳：私たちが着いた時には映画は始まっていた。"},
+ {topic:"助動詞",front:"may well ～",back:"～するのももっともだ／たぶん～だろう\n例：You may well be proud of your work.\n訳：自分の仕事を誇りに思うのももっともだ。"},
+ {topic:"助動詞",front:"may as well ～",back:"（ほかに選択肢もないので）～したほうがよい\n例：We may as well take a taxi.\n訳：タクシーに乗ったほうがよさそうだ。"},
+ {topic:"助動詞",front:"would rather ～",back:"むしろ～したい\n例：I would rather stay home tonight.\n訳：今夜はむしろ家にいたい。"},
+ {topic:"助動詞",front:"cannot ～ too ...",back:"いくら～してもしすぎることはない\n例：You cannot be too careful.\n訳：注意してもしすぎることはない。"},
+ {topic:"受動態",front:"be known for ～",back:"～で知られている\n例：The town is known for its beautiful lake.\n訳：その町は美しい湖で知られている。"},
+ {topic:"受動態",front:"be filled with ～",back:"～でいっぱいである\n例：The room was filled with people.\n訳：その部屋は人でいっぱいだった。"},
+ {topic:"不定詞",front:"so as to do",back:"～するために\n例：He left early so as to catch the first train.\n訳：彼は始発に乗るため早く出発した。"},
+ {topic:"不定詞",front:"be likely to do",back:"～しそうである\n例：It is likely to rain this evening.\n訳：今晩は雨が降りそうだ。"},
+ {topic:"動名詞",front:"feel like ～ing",back:"～したい気分である\n例：I feel like taking a walk.\n訳：散歩したい気分だ。"},
+ {topic:"動名詞",front:"There is no ～ing",back:"～することはできない／～するのは無理だ\n例：There is no telling what will happen.\n訳：何が起こるかはわからない。"},
+ {topic:"分詞・分詞構文",front:"judging from ～",back:"～から判断すると\n例：Judging from his expression, he is tired.\n訳：彼の表情から判断すると、彼は疲れている。"},
+ {topic:"分詞・分詞構文",front:"generally speaking",back:"一般的に言えば\n例：Generally speaking, children learn quickly.\n訳：一般的に言えば、子どもは覚えるのが早い。"},
+ {topic:"分詞・分詞構文",front:"strictly speaking",back:"厳密に言えば\n例：Strictly speaking, the answer is not correct.\n訳：厳密に言えば、その答えは正しくない。"},
+ {topic:"分詞・分詞構文",front:"considering ～",back:"～を考慮すると\n例：Considering his age, he runs very fast.\n訳：年齢を考えると、彼はとても速く走る。"},
+ {topic:"関係詞",front:"what is called ～",back:"いわゆる～\n例：He is what is called a perfectionist.\n訳：彼はいわゆる完璧主義者だ。"},
+ {topic:"関係詞",front:"先行詞 the way ＋ S V",back:"～する方法（関係副詞 how と同様の意味）\n例：I like the way she speaks.\n訳：私は彼女の話し方が好きだ。"},
+ {topic:"仮定法",front:"If it were not for ～",back:"もし～がなければ（現在の仮定）\n例：If it were not for your help, I would fail.\n訳：あなたの助けがなければ、私は失敗するだろう。"},
+ {topic:"仮定法",front:"I wish ～",back:"～ならよいのに（実現していない願望）\n例：I wish I had more time.\n訳：もっと時間があればいいのに。"},
+ {topic:"比較",front:"not so much A as B",back:"AというよりむしろB\n例：He is not so much a teacher as a writer.\n訳：彼は教師というよりむしろ作家だ。"},
+ {topic:"比較",front:"倍数表現：twice as ～ as ...",back:"…の2倍～\n例：This room is twice as large as that one.\n訳：この部屋はあの部屋の2倍の広さだ。"},
+ {topic:"前置詞",front:"in terms of ～",back:"～の観点から／～に関して\n例：The plan is good in terms of cost.\n訳：その計画は費用の点でよい。"},
+ {topic:"前置詞",front:"on behalf of ～",back:"～を代表して\n例：I spoke on behalf of my classmates.\n訳：クラスメートを代表して話した。"},
+ {topic:"前置詞",front:"regardless of ～",back:"～に関係なく\n例：Everyone can join regardless of age.\n訳：年齢に関係なく誰でも参加できる。"},
+ {topic:"文の種類",front:"Would you mind ～ing?",back:"～していただけませんか\n例：Would you mind opening the window?\n訳：窓を開けていただけませんか。"},
+ {topic:"話法",front:"tell A to do",back:"Aに～するように言う\n例：My teacher told me to be careful.\n訳：先生は私に気をつけるように言った。"},
+ {topic:"強調・倒置",front:"Not until ～",back:"～して初めて…（文頭では倒置に注意）\n例：Not until midnight did he come home.\n訳：真夜中になって初めて彼は帰宅した。"},
+ {topic:"強調・倒置",front:"It is not until ～ that ...",back:"～して初めて…する\n例：It was not until noon that she called me.\n訳：正午になって初めて彼女は私に電話した。"},
+ {topic:"その他の構文",front:"speaking of ～",back:"～と言えば\n例：Speaking of music, I like jazz.\n訳：音楽と言えば、私はジャズが好きだ。"},
+ {topic:"その他の構文",front:"make it a rule to do",back:"～することにしている\n例：I make it a rule to read every day.\n訳：私は毎日読むことにしている。"}
+];
+
+let generated=[], flashIndex=0, flipped=false, customCards=JSON.parse(localStorage.getItem("gsCards")||"[]");
+const baseCards = expressionCards;
+function init(){
+ const opts=topics.map(x=>`<option value="${x.id}">${x.id}</option>`).join("");
+ ["eTopic","newCardTopic"].forEach(id=>document.getElementById(id).innerHTML=opts);
+ document.getElementById("cardFilter").innerHTML='<option value="all">すべての分野</option>'+opts;
+ document.getElementById("topicChecks").innerHTML=topics.map((x,i)=>`<label><input type="checkbox" name="qTopics" value="${x.id}" ${i===0?"checked":""}> ${x.id}</label>`).join("");
+ document.getElementById("homeTopics").innerHTML=topics.map(x=>`<button class="topic-card" onclick="document.getElementById('eTopic').value='${x.id}';showPage('explain');renderExplanation()"><div class="topic-icon">${x.icon}</div><h3>${x.id}</h3><p>${x.desc}</p></button>`).join("");
+ renderExplanation();renderFlashcard();updateStats();
+}
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active","printing"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ window.scrollTo({top:0,behavior:"smooth"});
+ if(id==="cards")renderFlashcard();if(id==="explain")renderExplanation();
+}
+function toast(s){const e=document.getElementById("toast");e.textContent=s;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
+function setTopicChecks(checked){document.querySelectorAll('input[name="qTopics"]').forEach(el=>el.checked=checked)}
+function generateQuestions(){
+ const selected=[...document.querySelectorAll('input[name="qTopics"]:checked')].map(el=>el.value);
+ const type=document.getElementById("qType").value,level=document.getElementById("qLevel").value,count=+document.getElementById("qCount").value;
+ if(!selected.length){toast("文法分野を1つ以上選んでください");return}
+ let pool=questions.filter(q=>selected.includes(q.t)&&(type==="mix"||q.kind===type)&&(level==="all"||q.level===level));
+ if(!pool.length){pool=questions.filter(q=>selected.includes(q.t)&&(type==="mix"||q.kind===type));}
+ if(!pool.length){toast("選んだ条件の問題はまだありません");return}
+ pool=[...pool].sort(()=>Math.random()-.5);
+ generated=Array.from({length:count},(_,i)=>pool[i%pool.length]);
+ const label=type==="blank"?"穴埋め問題":type==="translate"?"日本語訳問題":"練習問題";
+ const topicLabel=selected.length===1?selected[0]:`ごちゃまぜ（${selected.join("・")}）`;
+ document.getElementById("questionResult").innerHTML=`<div class="result-head"><div><h3>作成した${label} <span class="muted">全${generated.length}問</span></h3><p class="muted">${topicLabel} ／ ${level==="all"?"標準":level==="basic"?"基礎":"応用"}</p></div><div class="toolbar no-print"><button class="btn btn-outline" onclick="toggleAnswers()">解答を表示</button><button class="btn btn-primary" onclick="printQuestions()">印刷する ⎙</button></div></div><div id="questionList">${generated.map((q,i)=>`<article class="question-card"><div class="q-top"><span class="q-number">QUESTION ${String(i+1).padStart(2,"0")}</span><span class="q-type">${q.t} ／ ${q.kind==="blank"?"穴埋め":"日本語訳"}</span></div><div class="q-text">${q.kind==="blank"?q.q.replace("(　　　)",'<span class="answer-line"></span>'):q.q}</div>${q.kind==="translate"?'<div class="muted">日本語に訳しなさい。</div>':''}<div class="q-answer"><b>解答：</b>${q.a}${q.ja&&q.kind==="blank"?`<br><b>訳：</b>${q.ja}`:""}<br><b>解説：</b>${q.why}</div></article>`).join("")}</div>`;
+}
+function toggleAnswers(){document.querySelectorAll(".q-answer").forEach(e=>e.classList.toggle("show"))}
+function resetQuestions(){generated=[];document.getElementById("questionResult").innerHTML="";toast("問題をリセットしました")}
+function printQuestions(){if(!generated.length)return;document.querySelectorAll(".page").forEach(p=>p.classList.remove("printing"));document.getElementById("create").classList.add("printing");window.print()}
+function renderExplanation(){
+ const t=document.getElementById("eTopic").value||"文型",l=lessons[t];if(!l)return;
+ document.getElementById("explainResult").innerHTML=`<article class="explain-card"><h3>01｜この単元のポイント</h3><p>${l.intro}</p><div class="rule">${l.rule}</div><ul>${l.points.map(p=>`<li>${p}</li>`).join("")}</ul></article><article class="explain-card"><h3>02｜例文で確認</h3>${l.examples.map(e=>`<div class="example"><b>${e[0]}</b><br>${e[1]}</div>`).join("")}</article>`;
+}
+function printExplanation(){document.querySelectorAll(".page").forEach(p=>p.classList.remove("printing"));document.getElementById("explain").classList.add("printing");window.print()}
+function getCards(){return [...baseCards,...customCards]}
+function filteredCards(){const f=document.getElementById("cardFilter").value;return getCards().filter(c=>f==="all"||c.topic===f)}
+function renderFlashcard(){
+ const list=filteredCards();
+ if(!list.length){document.getElementById("fcLabel").textContent="NO CARDS";document.getElementById("fcFront").textContent="この分野のカードはありません";document.getElementById("fcBack").style.display="none";document.getElementById("fcCount").textContent="";document.getElementById("cardList").innerHTML="";return}
+ if(flashIndex>=list.length)flashIndex=0;
+ const c=list[flashIndex];
+ document.getElementById("fcLabel").textContent=c.topic+" / EXPRESSION";
+ document.getElementById("fcFront").textContent=flipped?c.back:c.front;
+ document.getElementById("fcBack").style.display="none";
+ document.getElementById("fcHint").textContent=flipped?"タップして表現に戻る":"タップして意味・例文を見る";
+ document.getElementById("fcCount").textContent=`${flashIndex+1} / ${list.length} cards`;
+ document.getElementById("cardList").innerHTML=list.map((x,i)=>`<div class="flash-item" onclick="flashIndex=${i};flipped=false;renderFlashcard()">${i+1}. ${x.front}</div>`).join("");
+ updateStats();
+}
+function flipCard(){flipped=!flipped;renderFlashcard()}
+function nextCard(){const l=filteredCards();flashIndex=(flashIndex+1)%l.length;flipped=false;renderFlashcard()}
+function prevCard(){const l=filteredCards();flashIndex=(flashIndex-1+l.length)%l.length;flipped=false;renderFlashcard()}
+function openAddCard(){document.getElementById("addCardPanel").style.display="block";document.getElementById("addCardPanel").scrollIntoView({behavior:"smooth"})}
+function saveCard(){
+ const topic=document.getElementById("newCardTopic").value,front=document.getElementById("newCardFront").value.trim(),back=document.getElementById("newCardBack").value.trim();
+ if(!front||!back){toast("表面と裏面を入力してください");return}
+ customCards.push({topic,front,back});localStorage.setItem("gsCards",JSON.stringify(customCards));
+ document.getElementById("newCardFront").value="";document.getElementById("newCardBack").value="";document.getElementById("addCardPanel").style.display="none";renderFlashcard();toast("カードを保存しました");
+}
+function updateStats(){document.getElementById("statCards").textContent=getCards().length}
+window.addEventListener("afterprint",()=>document.querySelectorAll(".page").forEach(p=>p.classList.remove("printing")));
+init();
+</script>
+</body>
+</html>
